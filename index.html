@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto MoneTag Ads</title>
+    <script async src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        .progress {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 5px solid #0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px auto;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .watch-ad {
+            background-color: green;
+            color: white;
+        }
+        .withdraw {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Auto MoneTag Ads</h2>
+        <span style="background: green; padding: 5px 10px; border-radius: 5px;">INCOME BD 25</span>
+        <p>Welcome, @exampleUser</p>
+        <p>Watched Ads: <span id="watchedCount">0</span></p>
+        <p>Earned Points: <span id="earnedPoints">0</span></p>
+        <div class="progress" id="progress">0%</div>
+        <button class="watch-ad" onclick="showAd()">Watch Ad</button>
+        <button class="withdraw">Withdraw</button>
+    </div>
+
+    <script>
+        let watchedAds = 0;
+        let earnedPoints = 0;
+
+        function showAd() {
+            watchedAds++;
+            earnedPoints += 0.1;
+            document.getElementById('watchedCount').innerText = watchedAds;
+            document.getElementById('earnedPoints').innerText = earnedPoints.toFixed(2);
+            document.getElementById('progress').innerText = "✔";
+            
+            // Monetag Ad Integration
+            let script = document.createElement('script');
+            script.src = "//whephiwums.com/sdk.js";
+            script.setAttribute('data-zone', '9066213');
+            script.setAttribute('data-sdk', 'show_9066213');
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>
